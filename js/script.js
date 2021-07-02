@@ -13,19 +13,21 @@ const personalMovieDB = {
 
 };
 
-const lastFilm = prompt('Один из последних просмотренных фильмов?', '');
-const rating = prompt('На сколько оцените его?', '');
-const lastFilm1 = prompt('Один из последних просмотренных фильмов?', '');
-const rating1 = prompt('На сколько оцените его?', '');
+const countFilms = 2;
 
-personalMovieDB.movies.lastFilm = rating;
-personalMovieDB.movies[lastFilm1] = rating1;
+for (let i = 1; i <= countFilms; i++) {
+    const lastFilm = prompt('Один из последних просмотренных фильмов?', '');
+    const rating = prompt('На сколько оцените его?', '');
 
+    if (lastFilm == null || rating == null || lastFilm == '' ||  rating == '' || lastFilm.length > 10 || rating.length > 10) {
+        alert('Error');
+        i--;    
+    } else {
+        personalMovieDB.movies[lastFilm] = rating;
+    }
+}
 
-
-const mov = {
-    [lastFilm]: rating,
-};
 
 console.log(personalMovieDB);
-console.log(mov);
+
+
